@@ -1,0 +1,23 @@
+[package]
+name = "crypto-utils"
+description = "Cryptography Utils for Rust"
+authors = ["MedzikUser <nivua1fn@duck.com>"]
+license = "MIT"
+keywords = ["crypto", "sha"]
+categories = ["cryptography"]
+homepage = "https://github.com/MedzikUser/rust-crypto-utils"
+repository = "https://github.com/MedzikUser/rust-crypto-utils.git"
+version = "0.1.0"
+edition = "2021"
+
+[features]
+default = ["full"]
+full = ["sha"]
+sha = ["sha1", "sha2"]
+
+[dependencies]
+sha1 = { version = "0.10.1", optional = true }
+sha2 = { version = "0.10.2", optional = true }
+
+[dev-dependencies]
+hex = { version = "0.4.3" }
