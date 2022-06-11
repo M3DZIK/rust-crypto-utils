@@ -18,7 +18,7 @@ your application, simply add it to your project's `Cargo.toml`.
 
 ```toml
 [dependencies]
-crypto-utils = "0.1.0"
+crypto-utils = "0.2.0"
 ```
 
 ### How to use?
@@ -63,6 +63,7 @@ Create and decode a token
 ```rust
 use crypto_utils::jsonwebtoken::{Claims, Token};
 
+let secret = b"secret";
 let user_id = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx";
 
 // create claims

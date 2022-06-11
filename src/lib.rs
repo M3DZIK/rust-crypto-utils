@@ -16,7 +16,7 @@
 //!
 //! ```toml
 //! [dependencies]
-//! crypto-utils = "0.1.0"
+//! crypto-utils = "0.2.0"
 //! ```
 //!
 //! ## How to use?
