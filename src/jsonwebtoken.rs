@@ -1,10 +1,31 @@
+//! Module for creating and decoding json web token.
+//!
+//! **Required `jwt` feature!**
+//!
+//! Examples:
+//! ```
+//! use crypto_utils::jsonwebtoken::{Claims, Token};
+//!
+//! let secret = b"secret";
+//! let user_id = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx";
+//!
+//! // create claims
+//! let claims = Claims::new(user_id, 24);
+//!
+//! // create token
+//! let token = Token::new(secret, claims).unwrap();
+//!
+//! // decode token
+//! let decoded = Token::decode(secret, token.encoded).unwrap();
+//! ```
+
 use chrono::{Duration, Utc};
 use jsonwebtoken::{
     errors::Error, Algorithm, DecodingKey, EncodingKey, Header, TokenData, Validation,
 };
 use serde::{Deserialize, Serialize};
 
-/// Json Web Token Claims
+/// Token Claims
 #[derive(Debug, Serialize, Deserialize, Clone)]
 pub struct Claims {
     /// Token value

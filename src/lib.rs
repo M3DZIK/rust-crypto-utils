@@ -61,6 +61,7 @@
 //! ```
 //! use crypto_utils::jsonwebtoken::{Claims, Token};
 //!
+//! let secret = b"secret";
 //! let user_id = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx";
 //!
 //! // create claims
