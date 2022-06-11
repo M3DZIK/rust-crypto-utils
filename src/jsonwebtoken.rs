@@ -5,7 +5,7 @@ use jsonwebtoken::{
 use serde::{Deserialize, Serialize};
 
 /// Json Web Token Claims
-#[derive(Debug, PartialEq, Serialize, Deserialize, Clone)]
+#[derive(Debug, Serialize, Deserialize, Clone)]
 pub struct Claims {
     /// Token value
     pub sub: String,
@@ -37,7 +37,7 @@ impl Claims {
 }
 
 /// Json Web Token
-#[derive(Debug, PartialEq, Serialize, Deserialize, Clone)]
+#[derive(Debug, Serialize, Deserialize, Clone)]
 pub struct Token {
     /// Token Header
     header: Header,
