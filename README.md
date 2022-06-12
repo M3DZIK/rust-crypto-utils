@@ -13,7 +13,7 @@
 Cryptography Utils for Rust
 
 ### Importing
-The driver is available on [crates.io](https://crates.io/crates/crypto-utils). To use the driver in
+The driver is available on [crates-io](https://crates.io/crates/crypto-utils). To use the driver in
 your application, simply add it to your project's `Cargo.toml`.
 
 ```toml
@@ -75,5 +75,12 @@ let token = Token::new(secret, claims).unwrap();
 // decode token
 let decoded = Token::decode(secret, token.encoded).unwrap();
 ```
+
+### All Feature flags
+
+| Feature    | Description                                                   | Dependencies                              | Default |
+|:-----------|:-------------------------------------------------------------|:-------------------------------------------|:--------|
+| `sha`      | Enable support for the Sha1, Sha256 and Sha512 hasher         | `sha` and `sha2`                          | yes     |
+| `jwt`      | Enable support for the Json Web Token utils                   | `chrono`, `serde` and `jsonwebtoken`      | yes     |
 
 License: MIT

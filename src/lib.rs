@@ -73,6 +73,13 @@
 //! // decode token
 //! let decoded = Token::decode(secret, token.encoded).unwrap();
 //! ```
+//!
+//! ## All Feature flags
+//!
+//! | Feature    | Description                                                   | Dependencies                              | Default |
+//! |:-----------|:-------------------------------------------------------------|:-------------------------------------------|:--------|
+//! | `sha`      | Enable support for the Sha1, Sha256 and Sha512 hasher         | `sha` and `sha2`                          | yes     |
+//! | `jwt`      | Enable support for the Json Web Token utils                   | `chrono`, `serde` and `jsonwebtoken`      | yes     |
 
 #[cfg(feature = "jwt")]
 pub mod jsonwebtoken;
