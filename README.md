@@ -1,14 +1,14 @@
 # crypto-utils
 
 [![github]](https://github.com/MedzikUser/rust-crypto-utils)
-[![crates-io]](https://crates.io/crates/crypto-utils )
-[![docs-rs]](https://docs.rs/crypto-utils )
-[![CI]](https://github.com/MedzikUser/rust-crypto-utils/actions/workflows/rust.yml )
+[![crates-io]](https://crates.io/crates/crypto-utils)
+[![docs-rs]](https://docs.rs/crypto-utils)
+[![ci]](https://github.com/MedzikUser/rust-crypto-utils/actions/workflows/rust.yml)
 
 [github]: https://img.shields.io/badge/github-8da0cb?style=for-the-badge&labelColor=555555&logo=github
 [crates-io]: https://img.shields.io/badge/crates.io-fc8d62?style=for-the-badge&labelColor=555555&logo=rust
 [docs-rs]: https://img.shields.io/badge/docs.rs-66c2a5?style=for-the-badge&labelColor=555555&logo=docs.rs
-[CI]: https://img.shields.io/github/workflow/status/MedzikUser/rust-crypto-utils/Rust/main?style=for-the-badge
+[ci]: https://img.shields.io/github/workflow/status/MedzikUser/rust-crypto-utils/Rust/main?style=for-the-badge&logo=github
 
 Cryptography Utils for Rust
 
