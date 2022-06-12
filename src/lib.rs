@@ -11,7 +11,7 @@
 //! Cryptography Utils for Rust
 //!
 //! ## Importing
-//! The driver is available on [crates-io]. To use the driver in
+//! The driver is available on [crates-io](https://crates.io/crates/crypto-utils). To use the driver in
 //! your application, simply add it to your project's `Cargo.toml`.
 //!
 //! ```toml
