@@ -11,7 +11,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [0.2.1] - 2022-06-18
 ### Added
-- Examples
+- [Examples](https://github.com/MedzikUser/rust-crypto-utils/tree/v0.2.1/examples)
 ### Changed
 - update rust crate jsonwebtoken to 8.1.1
 
