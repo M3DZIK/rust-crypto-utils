@@ -1,5 +1,6 @@
 [package]
 name = "crypto-utils"
+version = "0.2.1"
 description = "Cryptography Utils for Rust"
 authors = ["MedzikUser <nivua1fn@duck.com>"]
 license = "MIT"
@@ -7,7 +8,6 @@ keywords = ["crypto", "sha"]
 categories = ["cryptography"]
 homepage = "https://github.com/MedzikUser/rust-crypto-utils"
 repository = "https://github.com/MedzikUser/rust-crypto-utils.git"
-version = "0.2.0"
 edition = "2021"
 
 [features]
