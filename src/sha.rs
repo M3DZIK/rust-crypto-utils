@@ -22,8 +22,11 @@ use sha2::{Sha256, Sha512};
 /// Hashing algorithms
 #[derive(Debug)]
 pub enum Algorithm {
+    /// [SHA-1](https://en.wikipedia.org/wiki/SHA-1)
     SHA1,
+    /// [SHA-256](https://en.wikipedia.org/wiki/SHA-2)
     SHA256,
+    /// [SHA-512](https://en.wikipedia.org/wiki/SHA-2)
     SHA512,
 }
 
