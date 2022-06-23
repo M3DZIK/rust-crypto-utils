@@ -16,70 +16,19 @@
 //!
 //! ```toml
 //! [dependencies]
-//! crypto-utils = "0.2.1"
+//! crypto-utils = "0.3.0"
 //! ```
 //!
 //! ## How to use?
 //!
-//! ### Compute a Sha hash
-//!
-//! Add `sha` features (is enabled by default)
-//!
-//! ```toml
-//! [dependencies]
-//! crypto-utils = { version = "...", features = ["sha"] }
-//! ```
-//!
-//! Quick and easy Sha1, Sha256 and Sha512 hash computing.
-//!
-//! ```
-//! use crypto_utils::sha::{Algorithm, CryptographicHash};
-//!
-//! // input data for a hasher
-//! let input = "P@ssw0rd"; // &str
-//!
-//! // compute hash
-//! let hash_bytes = CryptographicHash::hash(Algorithm::SHA1, input.as_bytes()); // Vec<u8>
-//!
-//! // decode hash to a String
-//! let hash = hex::encode(hash_bytes); // String
-//!
-//! assert_eq!(hash, "21bd12dc183f740ee76f27b78eb39c8ad972a757".to_string())
-//! ```
-//!
-//! ### Json Web Token
-//!
-//! Add `jwt` features (is enabled by default)
-//!
-//! ```toml
-//! [dependencies]
-//! crypto-utils = { version = "...", features = ["jwt"] }
-//! ```
-//!
-//! Create and decode a token
-//!
-//! ```
-//! use crypto_utils::jsonwebtoken::{Claims, Token};
-//!
-//! let secret = b"secret";
-//! let user_id = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx";
-//!
-//! // create claims
-//! let claims = Claims::new(user_id, 24);
-//!
-//! // create token
-//! let token = Token::new(secret, claims).unwrap();
-//!
-//! // decode token
-//! let decoded = Token::decode(secret, token.encoded).unwrap();
-//! ```
+//! Check [jsonwebtoken] and [sha] module
 //!
 //! ## All Feature flags
 //!
-//! | Feature    | Description                                                   | Dependencies                              | Default |
-//! |:-----------|:-------------------------------------------------------------|:-------------------------------------------|:--------|
-//! | `sha`      | Enable support for the Sha1, Sha256 and Sha512 hasher         | `sha` and `sha2`                          | yes     |
-//! | `jwt`      | Enable support for the Json Web Token utils                   | `chrono`, `serde` and `jsonwebtoken`      | yes     |
+//! | Feature  | Description                                                 | Dependencies                            | Default |
+//! |:---------|:------------------------------------------------------------|:----------------------------------------|:--------|
+//! | `sha`    | Enable support for the Sha1, Sha256 and Sha512 hasher       | `sha` and `sha2`                        | yes     |
+//! | `jwt`    | Enable support for the Json Web Token utils                 | `chrono`, `serde` and `jsonwebtoken`    | yes     |
 
 #![warn(missing_docs)]
 

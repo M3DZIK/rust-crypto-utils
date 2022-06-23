@@ -1,8 +1,5 @@
 //! Module for creating sha1, sha256 and sha512 hashes.
 //!
-//! **Required `sha` feature!**
-//!
-//! Examples:
 //! ```
 //! use crypto_utils::sha::{Algorithm, CryptographicHash};
 //!

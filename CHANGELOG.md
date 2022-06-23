@@ -9,6 +9,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## [0.3.0] - 2022-06-23
+- updated dependencies
+### Features
+- **jwt**: pub use type `TokenData`
+
 ## [0.2.1] - 2022-06-18
 ### Added
 - [Examples](https://github.com/MedzikUser/rust-crypto-utils/tree/v0.2.1/examples)
@@ -24,7 +29,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Sha1, Sha256, Sha512 hasher
 
 <!-- next-url -->
-[Unreleased]: https://github.com/MedzikUser/imgurs/compare/v0.2.1...HEAD
+[Unreleased]: https://github.com/MedzikUser/imgurs/compare/v0.3.0...HEAD
+[0.3.0]: https://github.com/MedzikUser/imgurs/commits/v0.3.0
 [0.2.1]: https://github.com/MedzikUser/imgurs/commits/v0.2.1
 [0.2.0]: https://github.com/MedzikUser/imgurs/commits/v0.2.0
 [0.1.0]: https://github.com/MedzikUser/imgurs/commits/v0.1.0

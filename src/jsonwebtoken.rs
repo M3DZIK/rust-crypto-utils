@@ -1,8 +1,5 @@
 //! Module for creating and decoding json web token.
 //!
-//! **Required `jwt` feature!**
-//!
-//! Examples:
 //! ```
 //! use crypto_utils::jsonwebtoken::{Claims, Token};
 //!
@@ -21,7 +18,7 @@
 
 use chrono::{Duration, Utc};
 use jsonwebtoken::{
-    errors::Error, Algorithm, DecodingKey, EncodingKey, Header, TokenData, Validation,
+    errors::Error, Algorithm, DecodingKey, EncodingKey, Header, Validation,
 };
 use serde::{Deserialize, Serialize};
 
@@ -56,6 +53,9 @@ impl Claims {
         }
     }
 }
+
+/// The return type of a successful call to [decode](Token::decode).
+pub type TokenData = jsonwebtoken::TokenData<Claims>;
 
 /// Json Web Token
 #[derive(Debug, Serialize, Deserialize, Clone)]
@@ -112,7 +112,7 @@ impl Token {
     /// // decode token
     /// let decoded = Token::decode(secret, token.encoded).unwrap();
     /// ```
-    pub fn decode(key: &[u8], token: String) -> Result<TokenData<Claims>, Error> {
+    pub fn decode(key: &[u8], token: String) -> Result<TokenData, Error> {
         jsonwebtoken::decode::<Claims>(
             &token,
             &DecodingKey::from_secret(key),
