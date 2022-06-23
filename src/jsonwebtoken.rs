@@ -17,9 +17,7 @@
 //! ```
 
 use chrono::{Duration, Utc};
-use jsonwebtoken::{
-    errors::Error, Algorithm, DecodingKey, EncodingKey, Header, Validation,
-};
+use jsonwebtoken::{errors::Error, Algorithm, DecodingKey, EncodingKey, Header, Validation};
 use serde::{Deserialize, Serialize};
 
 /// Token Claims
