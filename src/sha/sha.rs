@@ -1,18 +1,3 @@
-//! Module for creating sha1, sha256 and sha512 hashes.
-//!
-//! ```no_run
-//! use crypto_utils::sha::{Algorithm, CryptographicHash};
-//!
-//! // sha1
-//! CryptographicHash::hash(Algorithm::SHA1, b"P@ssw0rd");
-//!
-//! // sha256
-//! CryptographicHash::hash(Algorithm::SHA256, b"P@ssw0rd");
-//!
-//! // sha512
-//! CryptographicHash::hash(Algorithm::SHA512, b"P@ssw0rd");
-//! ```
-
 use sha1::{Digest, Sha1};
 use sha2::{Sha256, Sha512};
 
@@ -144,12 +129,12 @@ impl CryptographicHash {
     /// use crypto_utils::sha::{Algorithm, CryptographicHash};
     ///
     /// // compute hash
-    /// let mut hash_bytes = CryptographicHash::hash(Algorithm::SHA1, b"P@ssw0rd");
+    /// let hash_bytes: Vec<u8> = CryptographicHash::hash(Algorithm::SHA1, b"P@ssw0rd");
     ///
     /// // decode hash to a String
-    /// let hash = hex::encode(hash_bytes);
+    /// let hash: String = hex::encode(hash_bytes);
     ///
-    /// assert_eq!(hash, "21bd12dc183f740ee76f27b78eb39c8ad972a757".to_string())
+    /// # assert_eq!(hash, "21bd12dc183f740ee76f27b78eb39c8ad972a757".to_string())
     /// ```
     pub fn hash(algo: Algorithm, input: &[u8]) -> Vec<u8> {
         // create hasher

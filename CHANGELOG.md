@@ -8,6 +8,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 <!-- next-header -->
 
 ## [Unreleased]
+### Features
+- **sha**: Added HMAC Sha1, HMAC Sha256 and HMAC Sha512
 
 ## [0.3.0] - 2022-06-23
 - updated dependencies
