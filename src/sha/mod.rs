@@ -14,6 +14,7 @@
 //! ```
 
 mod mac;
+#[allow(clippy::module_inception)]
 mod sha;
 
 pub use mac::*;
