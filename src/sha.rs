@@ -1,6 +1,6 @@
 //! Module for creating sha1, sha256 and sha512 hashes.
 //!
-//! ```
+//! ```no_run
 //! use crypto_utils::sha::{Algorithm, CryptographicHash};
 //!
 //! // sha1
@@ -19,11 +19,11 @@ use sha2::{Sha256, Sha512};
 /// Hashing algorithms
 #[derive(Debug)]
 pub enum Algorithm {
-    /// [SHA-1](https://en.wikipedia.org/wiki/SHA-1)
+    /// Read about SHA-1 in [wikipedia](https://en.wikipedia.org/wiki/SHA-1)
     SHA1,
-    /// [SHA-256](https://en.wikipedia.org/wiki/SHA-2)
+    /// Read about SHA-2 in [wikipedia](https://en.wikipedia.org/wiki/SHA-2)
     SHA256,
-    /// [SHA-512](https://en.wikipedia.org/wiki/SHA-2)
+    /// Read about SHA-2 in [wikipedia](https://en.wikipedia.org/wiki/SHA-2)
     SHA512,
 }
 
@@ -71,7 +71,20 @@ pub enum CryptographicHash {
 }
 
 impl CryptographicHash {
-    /// Create a new hasher
+    /// Create a new SHA hasher
+    ///
+    /// ```no_run
+    /// use crypto_utils::sha::{Algorithm, CryptographicHash};
+    ///
+    /// // sha1 hasher
+    /// let mut hasher = CryptographicHash::new(Algorithm::SHA1);
+    ///
+    /// // sha256 hasher
+    /// let mut hasher = CryptographicHash::new(Algorithm::SHA256);
+    ///
+    /// // sha512 hasher
+    /// let mut hasher = CryptographicHash::new(Algorithm::SHA512);
+    /// ```
     pub fn new(algo: Algorithm) -> Self {
         match algo {
             // new Sha1 hasher
@@ -83,7 +96,15 @@ impl CryptographicHash {
         }
     }
 
-    /// Set value in hasher
+    /// Set value in the hasher
+    ///
+    /// ```no_run
+    /// # use crypto_utils::sha::{Algorithm, CryptographicHash};
+    /// #
+    /// # let mut hasher = CryptographicHash::new(Algorithm::SHA1);
+    /// #
+    /// hasher.update(b"value");
+    /// ```
     pub fn update(&mut self, input: &[u8]) {
         match self {
             // Sha1
@@ -96,6 +117,16 @@ impl CryptographicHash {
     }
 
     /// Compute hash
+    ///
+    /// ```no_run
+    /// # use crypto_utils::sha::{Algorithm, CryptographicHash};
+    /// #
+    /// # let mut hasher = CryptographicHash::new(Algorithm::SHA1);
+    /// #
+    /// # hasher.update(b"value");
+    /// let hash: Vec<u8> = hasher.finalize();
+    /// let hash_str: String = hex::encode(hash);
+    /// ```
     pub fn finalize(&mut self) -> Vec<u8> {
         match self {
             // Sha1
@@ -108,6 +139,7 @@ impl CryptographicHash {
     }
 
     /// Compute hash using a single function
+    ///
     /// ```
     /// use crypto_utils::sha::{Algorithm, CryptographicHash};
     ///

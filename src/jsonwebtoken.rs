@@ -33,6 +33,7 @@ pub struct Claims {
 
 impl Claims {
     /// Create a new Json Web Token Claims.
+    ///
     /// ```
     /// use crypto_utils::jsonwebtoken::Claims;
     ///
@@ -68,6 +69,7 @@ pub struct Token {
 
 impl Token {
     /// Create a new token
+    ///
     /// ```
     /// use crypto_utils::jsonwebtoken::{Claims, Token};
     ///
@@ -94,7 +96,8 @@ impl Token {
         })
     }
 
-    /// Decode token
+    /// Validate and decode token
+    ///
     /// ```
     /// use crypto_utils::jsonwebtoken::{Claims, Token};
     ///
