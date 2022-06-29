@@ -1,18 +1,8 @@
 use hmac::{Hmac, Mac};
 use sha1::Sha1;
 use sha2::{Sha256, Sha512};
-use thiserror::Error;
 
-/// Custom error type
-#[derive(Debug, Error)]
-pub enum Error {
-    /// Invalid HMAC Key
-    #[error("invalid key")]
-    InvalidKey,
-}
-
-/// Alias to a `Resuly<T, Error>` with the cutom [Error].
-pub type Result<T> = std::result::Result<T, Error>;
+use super::{Error, Result};
 
 /// HMAC hashing algorithms
 pub enum AlgorithmMac {
@@ -25,6 +15,38 @@ pub enum AlgorithmMac {
 }
 
 /// Compute cryptographic hash from bytes (HMAC Sha1, HMAC Sha256, HMAC Sha512).
+///
+/// ## Method 1 (recommend)
+/// ```
+/// use crypto_utils::sha::{AlgorithmMac, CryptographicMac};
+///
+/// // compute hash
+/// let hash_bytes: Vec<u8> = CryptographicMac::hash(AlgorithmMac::HmacSHA1, b"secret", b"input").unwrap();
+///
+/// // decode hash to a String
+/// let hash: String = hex::encode(hash_bytes);
+///
+/// # assert_eq!(hash, "30440f36ddc2809bbd4c8b1f37a6e80d7588c303".to_string())
+/// ```
+///
+/// ## Method 2
+/// ```
+/// use crypto_utils::sha::{AlgorithmMac, CryptographicMac};
+///
+/// // create a new hasher
+/// let mut hasher = CryptographicMac::new(AlgorithmMac::HmacSHA1, b"secret").unwrap();
+///
+/// // set value in hasher
+/// hasher.update(b"input");
+///
+/// // compute hash
+/// let hash_bytes: Vec<u8> = hasher.finalize();
+///
+/// // decode hash to a String
+/// let hash: String = hex::encode(hash_bytes);
+///
+/// # assert_eq!(hash, "30440f36ddc2809bbd4c8b1f37a6e80d7588c303".to_string())
+/// ```
 pub enum CryptographicMac {
     /// HMAC Sha1 hasher
     HmacSha1(Hmac<Sha1>),

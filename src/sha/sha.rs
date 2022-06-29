@@ -14,17 +14,17 @@ pub enum Algorithm {
 
 /// Compute cryptographic hash from bytes (sha1, sha256, sha512).
 ///
-/// Method 1
+/// Method 1 (recommend)
 /// ```
 /// use crypto_utils::sha::{Algorithm, CryptographicHash};
 ///
 /// // compute hash
-/// let hash_bytes = CryptographicHash::hash(Algorithm::SHA1, b"P@ssw0rd");
+/// let hash_bytes: Vec<u8> = CryptographicHash::hash(Algorithm::SHA1, b"P@ssw0rd");
 ///
 /// // decode hash to a String
-/// let hash = hex::encode(hash_bytes);
+/// let hash: String = hex::encode(hash_bytes);
 ///
-/// assert_eq!(hash, "21bd12dc183f740ee76f27b78eb39c8ad972a757".to_string())
+/// # assert_eq!(hash, "21bd12dc183f740ee76f27b78eb39c8ad972a757".to_string())
 /// ```
 ///
 /// Method 2
@@ -32,18 +32,18 @@ pub enum Algorithm {
 /// use crypto_utils::sha::{Algorithm, CryptographicHash};
 ///
 /// // create a new hasher
-/// let mut sha1 = CryptographicHash::new(Algorithm::SHA1);
+/// let mut hasher = CryptographicHash::new(Algorithm::SHA1);
 ///
 /// // set value in hasher
-/// sha1.update(b"P@ssw0rd");
+/// hasher.update(b"P@ssw0rd");
 ///
 /// // compute hash
-/// let hash_bytes = sha1.finalize();
+/// let hash_bytes: Vec<u8> = hasher.finalize();
 ///
 /// // decode hash to a String
-/// let hash = hex::encode(hash_bytes);
+/// let hash: String = hex::encode(hash_bytes);
 ///
-/// assert_eq!(hash, "21bd12dc183f740ee76f27b78eb39c8ad972a757".to_string())
+/// # assert_eq!(hash, "21bd12dc183f740ee76f27b78eb39c8ad972a757".to_string())
 /// ```
 #[derive(Debug, Clone)]
 pub enum CryptographicHash {
@@ -56,7 +56,7 @@ pub enum CryptographicHash {
 }
 
 impl CryptographicHash {
-    /// Create a new SHA hasher
+    /// Create a new Sha hasher
     ///
     /// ```no_run
     /// use crypto_utils::sha::{Algorithm, CryptographicHash};
@@ -152,53 +152,51 @@ impl CryptographicHash {
 mod tests {
     use super::{Algorithm, CryptographicHash};
 
+    const INPUT: &[u8] = b"input";
+
+    // expected hashes
+    const EXPECTED_SHA1: &str = "140f86aae51ab9e1cda9b4254fe98a74eb54c1a1";
+    const EXPECTED_SHA256: &str =
+        "c96c6d5be8d08a12e7b5cdc1b207fa6b2430974c86803d8891675e76fd992c20";
+    const EXPECTED_SHA512: &str =
+        "dc6d6c30f2be9c976d6318c9a534d85e9a1c3f3608321a04b4678ef408124d45d7164f3e562e68c6c0b6c077340a785824017032fddfa924f4cf400e6cbb6adc";
+
     /// Test a Sha1 hasher
     #[test]
     fn sha1() {
-        // expected hash
-        let expected_hash = "7726bd9560e1ad4a1a4f056cae5c0c9ea8bacfc2".to_string();
-
         // compute hash
-        let hash_bytes = CryptographicHash::hash(Algorithm::SHA1, b"test sha1 hash");
+        let hash_bytes = CryptographicHash::hash(Algorithm::SHA1, INPUT);
 
         // decode hash to a String
         let hash = hex::encode(hash_bytes);
 
         // validate hash
-        assert_eq!(hash, expected_hash)
+        assert_eq!(hash, EXPECTED_SHA1.to_string())
     }
 
     /// Test a Sha256 hasher
     #[test]
     fn sha256() {
-        // expected hash
-        let expected_hash =
-            "eaf6e4198f39ccd63bc3e957d43bf4ef67f12c318c8e3cdc2567a37339902dac".to_string();
-
         // compute hash
-        let hash_bytes = CryptographicHash::hash(Algorithm::SHA256, b"test sha256 hash");
+        let hash_bytes = CryptographicHash::hash(Algorithm::SHA256, INPUT);
 
         // decode hash to a String
         let hash = hex::encode(hash_bytes);
 
         // validate hash
-        assert_eq!(hash, expected_hash)
+        assert_eq!(hash, EXPECTED_SHA256.to_string())
     }
 
     /// Test a Sha512 hasher
     #[test]
     fn sha512() {
-        // expected hash
-        let expected_hash =
-            "b43b4d7178014c92f55be828d66c9f98211fc67b385f7790a5b4b2fcb89fe1831645b5a4c17f3f7f11d8f34d2800a77a2b8faa5a0fb9d6b8f7befbc29a9ce795".to_string();
-
         // compute hash
-        let hash_bytes = CryptographicHash::hash(Algorithm::SHA512, b"test sha512 hash");
+        let hash_bytes = CryptographicHash::hash(Algorithm::SHA512, INPUT);
 
         // decode hash to a String
         let hash = hex::encode(hash_bytes);
 
         // validate hash
-        assert_eq!(hash, expected_hash)
+        assert_eq!(hash, EXPECTED_SHA512.to_string())
     }
 }
