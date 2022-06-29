@@ -18,7 +18,7 @@ your application, simply add it to your project's `Cargo.toml`.
 
 ```toml
 [dependencies]
-crypto-utils = "0.2.1"
+crypto-utils = "0.4.0"
 ```
 
 ### How to use?
