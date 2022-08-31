@@ -26,5 +26,5 @@ jsonwebtoken = { version = "8.1.1", optional = true }
 thiserror = "1.0.32"
 
 [dev-dependencies]
-anyhow = "1.0.62"
+anyhow = "1.0.63"
 hex = { version = "0.4.3" }
