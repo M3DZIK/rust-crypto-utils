@@ -1,8 +1,8 @@
 [package]
 name = "crypto-utils"
-version = "0.4.0"
+version = "0.4.1"
 description = "Cryptography Utils for Rust"
-authors = ["MedzikUser <nivua1fn@duck.com>"]
+authors = ["MedzikUser <medzik@duck.com>"]
 license = "MIT"
 keywords = ["crypto", "sha"]
 categories = ["cryptography"]
@@ -27,4 +27,4 @@ thiserror = "1.0.35"
 
 [dev-dependencies]
 anyhow = "1.0.65"
-hex = { version = "0.4.3" }
+hex = "0.4.3"

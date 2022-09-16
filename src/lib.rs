@@ -21,7 +21,7 @@
 //!
 //! ## How to use?
 //!
-//! Check [jsonwebtoken] and [sha] module
+//! Check [jsonwebtoken] and [sha] modules.
 //!
 //! ## All Feature flags
 //!
